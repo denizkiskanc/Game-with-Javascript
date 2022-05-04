@@ -1,5 +1,5 @@
 const game = {
-    player: 'Player 1',
+    player: 'Player ',
     score: 0,
     time: null,
     action: () => {

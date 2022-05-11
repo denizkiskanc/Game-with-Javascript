@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #2f363e;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+}
+
+.section__btn{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.content__win {
+    display: none;
+    text-align: center;
+
+}
+.content__lose {
+    display: none;
+    text-align: center;
+
+}
+
+
+.content__message {
+    color: #fff;
+
+}

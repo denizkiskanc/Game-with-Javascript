@@ -82,7 +82,7 @@ const game = {
 
   },
   over: (text) => {
-    console.log('Son tahmininiz yanlış... Daha fazla tahmin hakkınız kalmadı... Oyunu kaybettiniz!!');
+    console.log('Son tahmininiz yanlış... Daha fazla tahmin hakkınız kalmadı... Oyunu kaybettiniz!');
     game.alertInfo.innerHTML = text;
     game.alertInfo.classList.remove('d-none');
     game.alertInfo.classList.remove('alert-success', 'alert-info');

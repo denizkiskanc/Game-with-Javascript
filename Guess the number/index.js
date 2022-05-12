@@ -22,6 +22,10 @@ const game = {
     startButton.addEventListener('click', () => {
       game.start();
     });
+
+    game.guessButton.addEventListener('click', () => {
+      game.guess(Number(game.guessInput.value)); // Number(); eklendi
+    });
   },
   start: () => {
     game.count = 3;
@@ -118,6 +122,3 @@ const game = {
   }
 }
 document.addEventListener('DOMContentLoaded', game.init());
-game.guessButton.addEventListener('click', () => {
-  game.guess(Number(game.guessInput.value)); // Number(); eklendi
-});

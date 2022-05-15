@@ -9,8 +9,7 @@ let firstCard=null;
 let secondCard=null;
 let hasFlippedCard = false;
 
-//loackboard firstCard ve secondCard açılıp kapanmadan önce başka bir kartın açılmasını engellemek için tanımlandı.
-//Başta false çünkü şuan herhangi bir firstCard ve secondCard şeçilmedi
+
 
 countPrint.innerHTML=`HAK: ${count}`;
 scorePrint.innerHTML=`SCORE: ${score}`;

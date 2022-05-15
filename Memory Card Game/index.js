@@ -8,7 +8,7 @@ let score = 0;
 let firstCard=null;
 let secondCard=null;
 let hasFlippedCard = false;
-let lockBoard = false;
+
 //loackboard firstCard ve secondCard açılıp kapanmadan önce başka bir kartın açılmasını engellemek için tanımlandı.
 //Başta false çünkü şuan herhangi bir firstCard ve secondCard şeçilmedi
 
@@ -17,8 +17,7 @@ scorePrint.innerHTML=`SCORE: ${score}`;
 
 function flipCard() {
 
-  if (lockBoard===true) 
-  return;
+
   if (this === firstCard) 
   return;
 
@@ -49,8 +48,11 @@ function checkForMatch() {
 }
 
 function disableCards() {
-  firstCard.removeEventListener('click', flipCard);// firstcard 'ın tıklama özelliğini kaldırıyor
-  secondCard.removeEventListener('click', flipCard);// secondcard 'ın tıklama özelliğini kaldırıyor
+  firstCard.classList.add('has-match');// firstcard 'ın tıklama özelliğini kaldırıyor
+  secondCard.classList.add('has-match');// secondcard 'ın tıklama özelliğini kaldırıyor
+
+  // firstCard.removeEventListener('click', flipCard);
+  // secondCard.removeEventListener('click', flipCard);
   score++; //eşleşmiş kart sayısı artıyor.
   scorePrint.innerHTML=`SCORE: ${score}`;
   if(score===10){//toplam 20 kart 
@@ -60,14 +62,10 @@ function disableCards() {
 }
 
 function unflipCards() {
-  lockBoard = true; // kilityor.
+  gameCards.classList.add('no-event');//css deki no-event classını ekliyor.
   count--;//hak eksiliyor
   countPrint.innerHTML=`HAK: ${count}`;
-  if(count===0){
-    gameCards.classList.add('no-event');//css deki no-event classını ekliyor.Yani oyun bittiğinde tıklanma özelliği kapanıyor
-    reStart();
-    document.querySelector('#lose').classList.remove('d-none');//Kaybettiniz yazısının d-none classını kaldırıyor.
-  }
+
 
   setTimeout(() => {
     firstCard.classList.remove('flipped');//dönen ve eşleşmeyen kartları kaldırıyor
@@ -78,11 +76,16 @@ function unflipCards() {
 }
 
 function resetBoard() { // başlangıçtaki haline döndürüyor
-  
-  hasFlippedCard = false;
-  lockBoard=false;
   firstCard=null;
   secondCard=null;
+  hasFlippedCard = false;
+  if(count===0){  
+      document.querySelector('#lose').classList.remove('d-none');//Kaybettiniz yazısının d-none classını kaldırıyor.
+      return reStart();
+  }
+
+  gameCards.classList.remove('no-event');
+
  
 }
 
@@ -108,6 +111,8 @@ function reStart() {
   const button = document.querySelector('#btn'); 
   button.classList.remove('d-none');
   
+  
+  
 }
 
 function reset() { // yeniden başla butonuna tıklandıktan sonra
@@ -115,7 +120,7 @@ function reset() { // yeniden başla butonuna tıklandıktan sonra
       score=0;
       shuffle();  // butona tıklayıncada karıştırma iişini yapması için
       cards.forEach(card => {
-
+        card.classList.remove('has-match');
         card.classList.remove('flipped'); // dönen kartları kapatmak için
     });
     countPrint.innerHTML=`HAK: ${count}`;

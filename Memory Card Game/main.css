@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  svg {
+    display: block;
+  }
+
+  .game {
+    min-width: 575px;
+    height: 100vh;
+    background: #2f4274;
+    padding-top: 50px;
+  }
+
+  .game__cards {
+    width: 720px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 100px;
+    grid-gap: 20px;
+    padding: 0 20px;
+    perspective: 1000px;
+  }
+
+  .game__cards.no-event {
+    pointer-events: none;
+  }
+
+  .game__card {
+    position: relative;
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    
+
+  }
+
+  .game__card.flipped,
+  .game__card.has-match {
+    pointer-events: none;
+  }
+
+  .game__card.flipped .game__back-card,
+  .game__card.has-match .game__back-card {
+    transform: rotateY(180deg);
+  }
+
+  .game__card.flipped .game__front-card,
+  .game__card.has-match .game__front-card {
+    transform: rotateY(360deg);
+  }
+
+  .game__back-card,
+  .game__front-card {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #f27922;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform 400ms;
+  }
+
+  .game__back-card {
+    z-index: 1;
+  }
+
+  .game__front-card {
+    transform: rotateY(180deg);
+  }
+
+  .footer {
+    text-align: center;
+    padding: 5px 0;
+    color: #ccc;
+    background: #333;
+  }
+
+  .footer a {
+    color: #21a1e1;
+    text-decoration: none;
+  }
+
+  .game .win {
+    
+    padding: 20px;
+    color:#f27922;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .d-none {
+    display: none;
+  }
+  
+  .game__details{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .game__details .count {
+
+   
+    background-color: rgb(255, 255, 255);
+    padding-top:20px;
+    padding-bottom: 20px;
+    width: 100px;
+    text-align: center;
+    margin:3%;
+    color:#f27922;
+    border-radius: 5px;
+    
+  }
+
+  .game__details .score {
+
+   
+    background-color: rgb(255, 255, 255);
+    padding-top:20px;
+    padding-bottom: 20px;
+    width: 100px;
+    text-align: center;
+    margin:3%;
+    color:#f27922;
+    border-radius: 5px;
+    
+  }
+
+
+  .game__details .win{
+
+   
+    background-color: rgb(149, 246, 149);
+    padding-top:20px;
+    padding-bottom: 20px;
+    width: 100px;
+    text-align: center;
+    margin:3%;
+    color:#fff; 
+    border-radius: 5px;
+  }
+
+  .game__details .lose{
+
+   
+    background-color: rgb(241, 125, 125);
+    padding-top:20px;
+    padding-bottom: 20px;
+    width: 100px;
+    text-align: center;
+    margin:3%;
+    color:#fff;
+    border-radius: 5px;  
+  }
+
+  .game__details .btn{
+
+    background-color: rgb(255, 255, 108);
+    padding-top:20px;
+    padding-bottom: 20px;
+    width: 100px;
+    text-align: center;
+    margin:3%;
+    color:#f27922;
+    border-radius: 5px;  
+    border: 2px rgb(255, 255, 108);
+  }
+
+  header h1{
+
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 30px;
+    
+  }
+
+
+

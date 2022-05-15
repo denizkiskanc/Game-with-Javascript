@@ -3,7 +3,7 @@ const gameCards = document.querySelector('.game__cards');
 const cards = document.querySelectorAll('.game__card');
 const countPrint=document.querySelector('#count');
 const scorePrint=document.querySelector('#score');
-let count = 10;
+let count = 3;
 let score = 0;
 let firstCard=null;
 let secondCard=null;
@@ -61,7 +61,7 @@ function disableCards() {
 
 function unflipCards() {
   gameCards.classList.add('no-event');//css deki no-event classını ekliyor.
-  count--;//hak eksiliyor
+  count--;
   countPrint.innerHTML=`HAK: ${count}`;
 
 
@@ -98,7 +98,7 @@ addEventListener('DOMContentLoaded', shuffle()); // sayfa yenilenince karıştı
 
 
 function win() {
-            score=10;
+            score=5;
             scorePrint.innerHTML=`SCORE: ${score}`;
             document.querySelector('#win').classList.remove('d-none');//Oyun kazanıldıktan sonra 'tebrikler' yazısının gözükmesi için d-none classını kaldırdım.
             gameCards.classList.add('no-event');//kartların tıklanmasını engellemek için no-event classını ekledim
@@ -114,7 +114,7 @@ function reStart() {
 }
 
 function reset() { // yeniden başla butonuna tıklandıktan sonra
-      count=10;
+      count=3;
       score=0;
       shuffle();  // butona tıklayıncada karıştırma iişini yapması için
       cards.forEach(card => {
@@ -137,4 +137,4 @@ document.querySelector('#btn').addEventListener('click', () => {//yeniden başla
 });
 
 
-cards.forEach(card => card.addEventListener('click', flipCard));//tıklanılan kartın index değerini card değişkenine atar.
+cards.forEach(card => card.addEventListener('click', flipCard));

@@ -25,7 +25,6 @@ function flipCard() {
   if (hasFlippedCard === false) {
     hasFlippedCard = true;
     firstCard = this;
-
     return;
   }
 
@@ -83,7 +82,7 @@ function resetBoard() { // başlangıçtaki haline döndürüyor
       return reStart();
   }
 
-  gameCards.classList.remove('no-event');
+  gameCards.classList.remove('no-event');//tıklanma özelliği kaldırılıyor
 
  
 }

@@ -16,9 +16,12 @@ scorePrint.innerHTML=`SCORE: ${score}`;
 
 function flipCard() {
 
-
-  if (this === firstCard) 
-  return;
+  
+  if (this === firstCard) {
+    console.log(this,firstCard);
+    return;
+  }
+  
 
   this.classList.add('flipped');//flipped classını aktive ediyor
 
@@ -93,12 +96,12 @@ function shuffle() {
     card.style.order = randomPositon;
   });
 };
-// shuffle();
-addEventListener('DOMContentLoaded', shuffle()); // sayfa yenilenince karıştırma 
+shuffle();
+// addEventListener('DOMContentLoaded', shuffle()); // sayfa yenilenince karıştırma 
 
 
 function win() {
-            score=5;
+            score=3;
             scorePrint.innerHTML=`SCORE: ${score}`;
             document.querySelector('#win').classList.remove('d-none');//Oyun kazanıldıktan sonra 'tebrikler' yazısının gözükmesi için d-none classını kaldırdım.
             gameCards.classList.add('no-event');//kartların tıklanmasını engellemek için no-event classını ekledim
